@@ -35,7 +35,7 @@ In alternativa, puoi usare direttamente il server integrato di PHP senza XAMPP:
 
    ```bash
    git clone https://github.com/matteo-gabbana/trackit.git
-   cd trackit-finto
+   cd trackit
    ```
 
 2. **Avvia il backend** PHP dalla cartella `backend/`:
@@ -52,7 +52,7 @@ In alternativa, puoi usare direttamente il server integrato di PHP senza XAMPP:
 ## Struttura del progetto
 
 ```
-trackit-finto/
+trackit/
 ├── backend/
 │   ├── index.php          # Entry point API (router)
 │   ├── config/
