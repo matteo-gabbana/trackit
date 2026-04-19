@@ -423,7 +423,6 @@ Wrapper attorno a Leaflet.js.
 
 - Inizializza la mappa centrata sull'Italia (`[42.5, 12.5]`, zoom 6)
 - `addMarker(lat, lng, label, tipo)`: aggiunge marker colorati (`verde`, `rosso`, `blu`, `stazione`, `treno`) basati su `L.divIcon`
-- `addPercorso(fermate)`: disegna la polilinea del percorso
 - `fitMarkers(padding)`: adatta lo zoom per mostrare tutti i marker
 - Le coordinate vengono cachate in memoria per ridurre le chiamate API ridondanti
 
@@ -480,7 +479,7 @@ Controller della pagina treno.
 - Recupera l'andamento del treno e renderizza header, timeline e mappa
 - `fermataStato(f)`: mappa `actualFermataType` allo stato CSS (`passata`, `corrente`, `futura`)
   - `0` → futura, `1` → passata, `2`/`3` → corrente
-- Per la mappa: recupera le coordinate di origine e destinazione tramite `dettaglioStazione` e disegna la polilinea
+- Per la mappa: recupera le coordinate di origine e destinazione tramite `dettaglioStazione`
 - Polling ogni 60 secondi
 
 ---
@@ -566,7 +565,7 @@ Click su riga treno → navigazione a treno.html?codTreno=...&codPartenza=...&da
   → backend → Trenitalia /andamentoTreno/{...}/{...}/{...}
   → rendering header (origine/destinazione/ritardo)
   → rendering timeline fermate (passate/corrente/future)
-  → api.dettaglioStazione() per origine e destinazione → coordinate → mappa con marker e polilinea
+  → api.dettaglioStazione() per origine e destinazione → coordinate → mappa con marker
   → polling ogni 60s
 ```
 
@@ -623,7 +622,7 @@ news.html carica → api.news('it')
 - [x] Badge ritardo per fermata
 - [x] Colorazione stato fermata (passata / corrente / futura)
 - [x] Click su fermata → navigazione pagina stazione
-- [x] Mappa con marker origine (rosso), destinazione (blu) e polilinea percorso
+- [x] Mappa con marker origine (rosso) e destinazione (blu)
 - [x] Timestamp ultimo aggiornamento
 - [x] Auto-refresh ogni 60 secondi
 
@@ -707,7 +706,7 @@ I test sono stati condotti manualmente tramite browser (Chrome e Firefox) con l'
 - Caricamento andamento per treni regionali e intercity in circolazione
 - Timeline con fermate passate, corrente e future con colorazione corretta
 - Stato fermata vuoto quando l'informazione non è disponibile nell'API
-- Mappa: presenza del marker di origine, destinazione e polilinea del percorso
+- Mappa: presenza del marker di origine e destinazione
 - Click su fermata nella timeline: navigazione corretta alla pagina stazione
 
 **Homepage**
