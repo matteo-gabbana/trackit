@@ -49,27 +49,6 @@ In alternativa, puoi usare direttamente il server integrato di PHP senza XAMPP:
 
    > Nota: con il server built-in di PHP potrebbe essere necessario aggiornare l'URL base delle API in `frontend/js/api.js` affinché punti a `http://localhost:8000`.
 
-## Struttura del progetto
-
-```
-trackit/
-├── backend/
-│   ├── index.php          # Entry point API (router)
-│   ├── config/
-│   │   └── config.php     # Configurazione (URL Trenitalia, timeout cURL)
-│   ├── controllers/       # Controller per ogni risorsa
-│   ├── services/          # TrenitaliaService (wrapper cURL)
-│   └── helpers/           # Response, Validator
-|   └── routes/            # Associazioni
-└── frontend/
-    ├── index.html          # Homepage
-    ├── treno.html          # Dettaglio treno
-    ├── stazione.html       # Dettaglio stazione
-    ├── news.html           # Notizie
-    ├── css/                # Fogli di stile modulari
-    └── js/                 # Moduli JavaScript
-```
-
 ## Note
 
 - **Nessuna dipendenza esterna**: non è richiesto `npm install` né `composer install`.
