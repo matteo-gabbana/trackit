@@ -60,6 +60,7 @@ trackit/
 │   ├── controllers/       # Controller per ogni risorsa
 │   ├── services/          # TrenitaliaService (wrapper cURL)
 │   └── helpers/           # Response, Validator
+|   └── routes/            # Associazioni
 └── frontend/
     ├── index.html          # Homepage
     ├── treno.html          # Dettaglio treno
