@@ -1,64 +1,87 @@
 <!DOCTYPE html>
 <html lang="it">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>TrackIT — News</title>
-<!-- Google Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Inter:wght@400;500;600&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-<!-- CSS propri -->
-<link rel="stylesheet" href="css/reset.css">
-<link rel="stylesheet" href="css/variables.css">
-<link rel="stylesheet" href="css/global.css">
-<link rel="stylesheet" href="css/components.css">
-<!-- CSS specifico pagina -->
-<link rel="stylesheet" href="css/news.css">
-<!-- Theme script — caricato PRIMA del body per evitare FOUC -->
-<script src="js/theme.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TrackIT — News</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Inter:wght@400;500;600&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/components.css">
+
+  <link rel="stylesheet" href="css/news.css">
+
+  <script src="js/theme.js"></script>
 </head>
+
 <body>
-<header class="site-header">
-<div class="container">
-<a href="index.html" class="logo">
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2c-4.418 0-8 3.582-8 8 0 6 8 12 8 12s8-6 8-12c0-4.418-3.582-8-8-8zm0 11c-1.657 0-3-1.343-3-3s1.343-3 3-3 3 1.343 3 3-1.343 3-3 3z"></path></svg>
-<span>TrackIT</span>
-</a>
-<nav class="main-nav">
-<a href="index.html" data-i18n="nav.home">Home</a>
-<button id="theme-toggle" class="btn-theme-toggle" aria-label="Passa a modalità scura">
-  <svg class="theme-icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zM2 13h2c.55 0 1-.45 1-1s-.45-1-1-1H2c-.55 0-1 .45-1 1s.45 1 1 1zm18 0h2c.55 0 1-.45 1-1s-.45-1-1-1h-2c-.55 0-1 .45-1 1s.45 1 1 1zM11 2v2c0 .55.45 1 1 1s1-.45 1-1V2c0-.55-.45-1-1-1s-1 .45-1 1zm0 18v2c0 .55.45 1 1 1s1-.45 1-1v-2c0-.55-.45-1-1-1s-1 .45-1 1zM5.99 4.58c-.39-.39-1.03-.39-1.41 0-.39.39-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41L5.99 4.58zm12.37 12.37c-.39-.39-1.03-.39-1.41 0-.39.39-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0 .39-.39.39-1.03 0-1.41l-1.06-1.06zm1.06-12.37l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06c.39-.39.39-1.03 0-1.41s-1.03-.39-1.41 0zM7.05 18.36l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06c.39-.39.39-1.03 0-1.41s-1.03-.39-1.41 0z"/></svg>
-  <svg class="theme-icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-</button>
-<a href="news.html" data-i18n="nav.news">News</a>
-<button id="lang-toggle" class="btn-lang">IT</button>
-</nav>
-<button class="hamburger" aria-label="Menu">
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path></svg>
-</button>
-</div>
-</header>
-<main>
-<div class="container">
-<section class="news-section">
-<h1 data-i18n="news.title">Ultime Notizie</h1>
-<div class="news-filter">
-<button class="btn" data-lang-filter="it">Italiano</button>
-<button class="btn" data-lang-filter="en">English</button>
-</div>
-<p id="last-update-time" class="update-info"></p>
-<div id="news-grid" class="news-grid">
-<!-- News cards will be loaded here -->
-</div>
-<p id="no-news-message" class="news-placeholder" style="display: none;" data-i18n="news.no_news"></p>
-</section>
-</div>
-</main>
-<footer class="site-footer">
-<div class="container">
-<p data-i18n="footer.credit">TrackIT — Dati da Trenitalia/Viaggiatreno</p>
-</div>
-</footer>
-<!-- Script pagina -->
-<script type="module" src="js/news.js"></script>
+
+  <header class="site-header">
+    <div class="container">
+      <a href="index.html" class="logo">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path d="M12 2c-4.418 0-8 3.582-8 8 0 6 8 12 8 12s8-6 8-12c0-4.418-3.582-8-8-8zm0 11c-1.657 0-3-1.343-3-3s1.343-3 3-3 3 1.343 3 3-1.343 3-3 3z"></path>
+        </svg>
+        <span>TrackIT</span>
+      </a>
+
+      <nav class="main-nav">
+        <a href="index.html" data-i18n="nav.home">Home</a>
+
+        <button id="theme-toggle" class="btn-theme-toggle" aria-label="Passa a modalità scura">
+          <svg class="theme-icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zM2 13h2c.55 0 1-.45 1-1s-.45-1-1-1H2c-.55 0-1 .45-1 1s.45 1 1 1zm18 0h2c.55 0 1-.45 1-1s-.45-1-1-1h-2c-.55 0-1 .45-1 1s.45 1 1 1zM11 2v2c0 .55.45 1 1 1s1-.45 1-1V2c0-.55-.45-1-1-1s-1 .45-1 1zm0 18v2c0 .55.45 1 1 1s1-.45 1-1v-2c0-.55-.45-1-1-1s-1 .45-1 1zM5.99 4.58c-.39-.39-1.03-.39-1.41 0-.39.39-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41L5.99 4.58zm12.37 12.37c-.39-.39-1.03-.39-1.41 0-.39.39-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0 .39-.39.39-1.03 0-1.41l-1.06-1.06zm1.06-12.37l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06c.39-.39.39-1.03 0-1.41s-1.03-.39-1.41 0zM7.05 18.36l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06c.39-.39.39-1.03 0-1.41s-1.03-.39-1.41 0z" />
+          </svg>
+          <svg class="theme-icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+          </svg>
+        </button>
+
+        <a href="news.html" data-i18n="nav.news">News</a>
+        <button id="lang-toggle" class="btn-lang">IT</button>
+      </nav>
+
+      <button class="hamburger" aria-label="Menu">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <section class="news-section">
+        <h1 data-i18n="news.title">Ultime Notizie</h1>
+
+        <div class="news-filter">
+          <button class="btn" data-lang-filter="it">Italiano</button>
+          <button class="btn" data-lang-filter="en">English</button>
+        </div>
+
+        <p id="last-update-time" class="update-info"></p>
+
+        <div id="news-grid" class="news-grid">
+          </div>
+
+        <p id="no-news-message" class="news-placeholder" style="display: none;" data-i18n="news.no_news">
+          Nessuna notizia disponibile al momento.
+        </p>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p data-i18n="footer.credit">TrackIT — Dati da Trenitalia / Viaggiatreno</p>
+    </div>
+  </footer>
+
+  <script type="module" src="js/news.js"></script>
+
 </body>
 </html>
