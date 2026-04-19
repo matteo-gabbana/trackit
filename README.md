@@ -350,7 +350,7 @@ Sezioni principali:
 1. **Header:** Logo TrackIT, navigazione (Home / News), toggle tema chiaro/scuro, toggle lingua IT/EN, menu hamburger per mobile
 2. **Hero:** Titolo, sottotitolo, form di ricerca stazione (con autocomplete), form di ricerca treno per numero
 3. **Contatore treni:** Mostra il numero di treni attualmente in circolazione, aggiornato ogni 30 secondi con animazione numerica
-4. **Stazioni recenti:** Griglia di chip cliccabili (max 5) con pulsante di rimozione. Mappa che mostra la posizione geografica delle stazioni salvate
+4. **Stazioni recenti:** Griglia di chip cliccabili (max 5) con pulsante di rimozione.
 5. **Footer**
 
 #### `stazione.html` — Dettaglio stazione
@@ -368,7 +368,7 @@ Sezioni principali:
 Sezioni principali:
 1. **Header:** Numero treno, tratta origine → destinazione, ritardo corrente, timestamp
 2. **Timeline verticale:** Elenco di tutte le fermate con orario programmato, orario reale (quando disponibile dall'API), badge ritardo, indicatore di stato fermata (percorsa / corrente / futura). Ogni fermata è cliccabile e porta alla pagina della stazione.
-3. **Mappa:** Marker rosso per la stazione di origine, marker blu per la destinazione, polilinea del percorso
+3. **Mappa:** Marker rosso per la stazione di origine, marker blu per la destinazione
 4. **Auto-refresh:** Aggiornamento automatico ogni 60 secondi
 
 #### `news.html` — Notizie
@@ -529,7 +529,7 @@ Funzioni di utilità condivise.
 | `stazione.css` | Stili pagina stazione: header, tab, input soglia, tabella treni, layout mappa |
 | `treno.css` | Stili pagina treno: header, timeline verticale, indicatori stato fermata, layout mappa |
 | `news.css` | Stili pagina notizie: griglia card, pulsanti filtro, data pubblicazione |
-| `map.css` | Personalizzazione Leaflet: marker SVG colorati, popup, polilinee |
+| `map.css` | Personalizzazione Leaflet: marker SVG colorati, popup |
 
 ---
 
@@ -726,9 +726,3 @@ I test sono stati condotti manualmente tramite browser (Chrome e Firefox) con l'
 - Menu hamburger: apertura/chiusura su mobile e a schermo ridotto
 - Popup di errore: apertura, chiusura con pulsante, con Esc e con click sull'overlay
 - Responsive: verificato a 375px (mobile), 768px (tablet), 1280px+ (desktop)
-
-### Limitazioni non risolte
-
-- Le coordinate geografiche per la polilinea sulla mappa del treno dipendono da `dettaglioStazione` per ogni fermata: per treni con molte fermate, questo genera un numero elevato di chiamate sequenziali. Non è stata implementata una cache persistente tra sessioni per questi dati.
-- L'API Trenitalia può risultare non raggiungibile in determinati orari o restituire dati incompleti: l'applicazione gestisce questi casi con messaggi di errore, ma non implementa retry automatico.
-- Su alcune stazioni di confine o secondarie, il campo `codOrigine` nelle partenze può essere assente, impedendo la navigazione alla pagina treno da quella riga.
