@@ -1,0 +1,247 @@
+/* =============================================
+   TrackIT — Home Page
+   ============================================= */
+
+/* ── Hero ────────────────────────────────── */
+.hero {
+  background:
+    radial-gradient(ellipse at 70% 50%, rgba(231,76,60,0.12) 0%, transparent 60%),
+    linear-gradient(135deg, #1E2D45 0%, #2E4068 55%, #1E2D45 100%);
+  color: #FFFFFF;
+  padding: var(--space-8) 0;
+  text-align: center;
+  position: relative;
+  /* NO overflow:hidden — clippava il dropdown dell'autocomplete */
+}
+
+[data-theme="dark"] .hero {
+  background:
+    radial-gradient(ellipse at 70% 50%, rgba(231,76,60,0.08) 0%, transparent 60%),
+    linear-gradient(135deg, #0D1117 0%, #161B22 55%, #0D1117 100%);
+}
+
+/*
+  Binario animato: usa background-position invece di translateX su un elemento
+  largo 200%, così non c'è overflow e il dropdown non viene clippato.
+*/
+.hero::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 26px;
+  background-image: repeating-linear-gradient(
+    90deg,
+    rgba(255,255,255,0.07) 0,
+    rgba(255,255,255,0.07) 28px,
+    transparent 28px,
+    transparent 48px
+  );
+  background-size: 48px 100%;
+  animation: moveTracks 1.4s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes moveTracks {
+  from { background-position-x: 0; }
+  to   { background-position-x: 48px; }
+}
+
+.hero h1 {
+  font-family: var(--font-heading);
+  font-size: clamp(2.4rem, 5vw, 3.6rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  margin-bottom: var(--space-2);
+  text-shadow: 0 2px 16px rgba(0,0,0,0.2);
+}
+
+.hero h1 span { color: var(--color-accent); }
+
+.hero > .container > p {
+  font-size: 1.1rem;
+  opacity: 0.8;
+  margin-bottom: var(--space-4);
+  max-width: 480px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ── Search Forms ────────────────────────── */
+.search-forms {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+  margin-top: var(--space-2);
+}
+
+.search-forms form {
+  background: rgba(255,255,255,0.96);
+  backdrop-filter: blur(10px);
+  padding: var(--space-2) var(--space-2);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.22), 0 2px 8px rgba(0,0,0,0.12);
+  display: flex;
+  gap: var(--space-1);
+  align-items: center;
+  position: relative;
+  z-index: 1; /* crea stacking context → il dropdown blocca gli elementi sottostanti */
+  border: 1px solid rgba(255,255,255,0.5);
+  min-width: 320px;
+}
+
+[data-theme="dark"] .search-forms form {
+  background: rgba(22,27,34,0.95);
+  border-color: var(--color-border);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+}
+
+.search-forms input[type="text"],
+.search-forms input[type="number"] {
+  border: 1.5px solid var(--color-border);
+  background: var(--color-surface);
+  color: var(--color-text-dark);
+  padding: 10px 14px;
+  border-radius: var(--radius-md);
+  font-size: 0.97rem;
+  min-width: 220px;
+  flex: 1;
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+  outline: none;
+}
+
+.search-forms input:focus {
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px rgba(231,76,60,0.15);
+}
+
+[data-theme="dark"] .search-forms input[type="text"],
+[data-theme="dark"] .search-forms input[type="number"] {
+  background: var(--color-surface-raised);
+  border-color: var(--color-border);
+  color: var(--color-text-dark);
+}
+
+/* ── Train Counter ───────────────────────── */
+.train-counter-section {
+  text-align: center;
+  padding: var(--space-6) 0;
+  background: var(--color-surface);
+  border-top: 1px solid var(--color-border-subtle);
+  border-bottom: 1px solid var(--color-border-subtle);
+}
+
+[data-theme="dark"] .train-counter-section {
+  background: var(--color-surface);
+}
+
+.train-counter-section h2 {
+  font-family: var(--font-heading);
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--color-text);
+  letter-spacing: 0.01em;
+}
+
+.train-counter {
+  font-family: var(--font-heading);
+  font-size: clamp(3rem, 7vw, 5rem);
+  font-weight: 800;
+  color: var(--color-accent);
+  display: inline-block;
+  margin-right: 10px;
+  line-height: 1;
+}
+
+/* ── Recent Stations ─────────────────────── */
+.recent-stations-section {
+  padding: var(--space-6) 0;
+}
+
+.recent-stations-section h2 {
+  font-family: var(--font-heading);
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-bottom: var(--space-3);
+  text-align: center;
+  color: var(--color-text-dark);
+}
+
+.recent-stations-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1);
+  justify-content: center;
+}
+
+.station-chip {
+  background: var(--color-surface);
+  color: var(--color-text-dark);
+  border: 1.5px solid var(--color-border);
+  padding: 8px 14px;
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  transition: background var(--transition-fast), border-color var(--transition-fast),
+              color var(--transition-fast), transform var(--transition-fast);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  box-shadow: var(--shadow-sm);
+}
+
+.station-chip:hover {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+  color: #FFFFFF;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(231,76,60,0.3);
+}
+
+.station-chip .remove-btn {
+  background: none;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+  font-size: 1rem;
+  line-height: 1;
+  opacity: 0.6;
+  padding: 0;
+  transition: opacity var(--transition-fast);
+}
+
+.station-chip .remove-btn:hover { opacity: 1; }
+
+/* ── Recent Stations Map ─────────────────── */
+.recent-stations-map-wrapper {
+  margin-top: var(--space-3);
+  animation: fadeIn var(--transition-normal) ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Responsive ─────────────────────────── */
+@media (max-width: 768px) {
+  .hero h1 { font-size: 2.2rem; }
+
+  .search-forms {
+    padding: 0 var(--space-2);
+  }
+
+  .search-forms form {
+    width: 100%;
+    min-width: unset;
+    flex-direction: column;
+  }
+
+  .search-forms input {
+    width: 100%;
+    min-width: unset;
+  }
+}

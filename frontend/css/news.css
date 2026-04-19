@@ -1,0 +1,158 @@
+/* =============================================
+   TrackIT — News Page
+   ============================================= */
+
+/* ── Section Header ──────────────────────── */
+.news-section {
+  padding: var(--space-6) 0;
+}
+
+.news-section h1 {
+  font-family: var(--font-heading);
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  font-weight: 800;
+  color: var(--color-text-dark);
+  margin-bottom: var(--space-3);
+  letter-spacing: -0.02em;
+}
+
+/* ── Update Info ─────────────────────────── */
+.news-section .update-info {
+  font-size: 0.83rem;
+  color: var(--color-text);
+  margin-bottom: var(--space-2);
+}
+
+/* ── Language Filters ────────────────────── */
+.news-filter {
+  display: flex;
+  justify-content: flex-start;
+  gap: var(--space-1);
+  margin-bottom: var(--space-4);
+  flex-wrap: wrap;
+}
+
+.news-filter button {
+  padding: 8px 20px;
+  border-radius: var(--radius-full);
+  border: 1.5px solid var(--color-border);
+  background: var(--color-surface);
+  color: var(--color-text-dark);
+  font-family: var(--font-cta);
+  font-weight: 600;
+  font-size: 0.88rem;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  box-shadow: var(--shadow-sm);
+}
+
+.news-filter button:hover {
+  border-color: var(--color-primary);
+  background: var(--color-bg-secondary);
+}
+
+.news-filter button.active {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+  color: #FFFFFF;
+  box-shadow: 0 4px 12px rgba(30,45,69,0.25);
+}
+
+[data-theme="dark"] .news-filter button.active {
+  background: #4B72B0;
+  border-color: #4B72B0;
+  box-shadow: 0 4px 12px rgba(75,114,176,0.3);
+}
+
+/* ── News Grid ───────────────────────────── */
+.news-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: var(--space-3);
+  margin-top: var(--space-3);
+}
+
+/* ── News Cards ──────────────────────────── */
+.news-card {
+  background: var(--color-surface);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+  padding: var(--space-3);
+  border: 1px solid var(--color-border-subtle);
+  display: flex;
+  flex-direction: column;
+  transition: box-shadow var(--transition-normal), transform var(--transition-normal),
+              border-color var(--transition-normal);
+}
+
+.news-card:hover {
+  box-shadow: var(--shadow-elevated);
+  transform: translateY(-3px);
+  border-color: var(--color-border);
+}
+
+.news-card h2 {
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin-bottom: var(--space-1);
+  color: var(--color-text-dark);
+  line-height: 1.35;
+}
+
+.news-card .news-date {
+  font-size: 0.8rem;
+  color: var(--color-text);
+  margin-bottom: var(--space-2);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
+.news-card p {
+  font-size: 0.93rem;
+  line-height: 1.6;
+  color: var(--color-text);
+  margin-bottom: var(--space-3);
+  flex: 1;
+}
+
+.news-card a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--color-accent);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: gap var(--transition-fast), opacity var(--transition-fast);
+  align-self: flex-start;
+}
+
+.news-card a::after {
+  content: '→';
+}
+
+.news-card a:hover {
+  gap: 10px;
+  opacity: 0.85;
+}
+
+/* ── No News Placeholder ─────────────────── */
+.news-placeholder {
+  text-align: center;
+  padding: var(--space-8);
+  font-size: 1.1rem;
+  color: var(--color-text);
+  grid-column: 1 / -1;
+}
+
+/* ── Responsive ─────────────────────────── */
+@media (max-width: 768px) {
+  .news-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .news-filter {
+    justify-content: flex-start;
+  }
+}

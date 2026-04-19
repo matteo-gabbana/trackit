@@ -1,0 +1,74 @@
+/* =============================================
+   TrackIT — Design Tokens
+   ============================================= */
+:root {
+  /* === Colori — Light Mode (default) === */
+  --color-primary:        #1E2D45;
+  --color-primary-light:  #2E4068;
+  --color-accent:         #E74C3C;
+  --color-accent-dark:    #C0392B;
+  --color-bg:             #F0F4F9;
+  --color-bg-secondary:   #E2EAF4;
+  --color-text:           #5A6B82;
+  --color-text-dark:      #1E2D45;
+  --color-warning:        #F59E0B;
+  --color-success:        #10B981;
+  --color-white:          #FFFFFF;
+
+  /* Superfici semantiche (flip in dark mode) */
+  --color-surface:        #FFFFFF;
+  --color-surface-raised: #F7FAFD;
+  --color-border:         #CBD8E8;
+  --color-border-subtle:  #E4EBF5;
+
+  /* === Tipografia === */
+  --font-heading: 'Montserrat', sans-serif;
+  --font-body:    'Inter', sans-serif;
+  --font-cta:     'Poppins', sans-serif;
+
+  /* === Spaziature (sistema 8px) === */
+  --space-1: 8px;
+  --space-2: 16px;
+  --space-3: 24px;
+  --space-4: 32px;
+  --space-6: 48px;
+  --space-8: 64px;
+
+  /* === Border Radius — moderno === */
+  --radius-sm:   6px;
+  --radius-md:   10px;
+  --radius-lg:   16px;
+  --radius-xl:   24px;
+  --radius-full: 9999px;
+
+  /* === Ombre === */
+  --shadow-sm:       0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+  --shadow-card:     0 4px 20px rgba(0,0,0,0.07), 0 1px 5px rgba(0,0,0,0.04);
+  --shadow-elevated: 0 12px 36px rgba(0,0,0,0.11), 0 4px 12px rgba(0,0,0,0.06);
+
+  /* === Transizioni === */
+  --transition-fast:   180ms ease-out;
+  --transition-normal: 290ms ease-out;
+  --transition-slow:   400ms ease-out;
+
+  /* === Layout === */
+  --max-width:     1240px;
+  --header-height: 68px;
+}
+
+/* =============================================
+   Dark Mode Overrides
+   ============================================= */
+[data-theme="dark"] {
+  --color-bg:             #0D1117;
+  --color-bg-secondary:   #161B22;
+  --color-text:           #8B949E;
+  --color-text-dark:      #E6EDF3;
+  --color-surface:        #161B22;
+  --color-surface-raised: #21262D;
+  --color-border:         #30363D;
+  --color-border-subtle:  #21262D;
+  --shadow-sm:       0 1px 3px rgba(0,0,0,0.4);
+  --shadow-card:     0 4px 20px rgba(0,0,0,0.35);
+  --shadow-elevated: 0 12px 36px rgba(0,0,0,0.5);
+}

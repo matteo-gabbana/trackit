@@ -1,0 +1,186 @@
+/* =============================================
+   TrackIT — Train Detail Page
+   ============================================= */
+
+/* ── Train Header (dark background) ─────── */
+.train-header {
+  background: linear-gradient(135deg, #1E2D45 0%, #2E4068 100%);
+  color: #FFFFFF;
+  padding: var(--space-4) var(--space-3);
+  margin-bottom: var(--space-4);
+  border-radius: 0 0 var(--radius-xl) var(--radius-xl);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+}
+
+[data-theme="dark"] .train-header {
+  background: linear-gradient(135deg, #0D1117 0%, #161B22 100%);
+  border-bottom: 1px solid var(--color-border);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+}
+
+.train-header h1 {
+  font-family: var(--font-heading);
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin-bottom: var(--space-1);
+  color: #FFFFFF;
+}
+
+.train-header .train-info {
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+  color: rgba(255,255,255,0.8);
+  margin-bottom: var(--space-1);
+}
+
+.train-header .train-info span[id] {
+  color: rgba(255,255,255,0.55);
+  font-size: 0.85rem;
+}
+
+/* Refresh Button inside dark header */
+.train-header .btn-secondary {
+  border-color: rgba(255,255,255,0.35);
+  color: rgba(255,255,255,0.9);
+  font-size: 0.88rem;
+  padding: 7px var(--space-2);
+  margin-top: var(--space-1);
+}
+
+.train-header .btn-secondary:hover {
+  border-color: rgba(255,255,255,0.7);
+  background: rgba(255,255,255,0.1);
+  color: #FFFFFF;
+  transform: translateY(-1px);
+}
+
+/* ── Detail Layout ───────────────────────── */
+.train-detail-layout {
+  display: flex;
+  gap: var(--space-3);
+  align-items: flex-start;
+}
+
+.train-detail-layout > div { flex: 1; }
+
+.train-detail-layout .map-container {
+  flex: 0 0 55%;
+}
+
+.train-detail-layout h2 {
+  font-family: var(--font-heading);
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--color-text-dark);
+  margin-bottom: var(--space-2);
+  padding-bottom: var(--space-1);
+  border-bottom: 2px solid var(--color-border-subtle);
+}
+
+/* ── Timeline ────────────────────────────── */
+.train-timeline {
+  position: relative;
+  padding-left: var(--space-4);
+  border-left: 2px solid var(--color-border);
+}
+
+[data-theme="dark"] .train-timeline {
+  border-left-color: var(--color-border);
+}
+
+.train-timeline-item {
+  margin-bottom: var(--space-3);
+  position: relative;
+  padding: var(--space-2) var(--space-2);
+  border-radius: var(--radius-md);
+  transition: background var(--transition-fast);
+  cursor: pointer;
+}
+
+.train-timeline-item:hover {
+  background: var(--color-bg-secondary);
+}
+
+[data-theme="dark"] .train-timeline-item:hover {
+  background: var(--color-surface-raised);
+}
+
+/* Timeline dot */
+.train-timeline-item::before {
+  content: '';
+  position: absolute;
+  left: calc(-1 * var(--space-4) - 7px);
+  top: 14px;
+  width: 14px;
+  height: 14px;
+  background: var(--color-border);
+  border-radius: 50%;
+  border: 3px solid var(--color-bg);
+  transition: background var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+[data-theme="dark"] .train-timeline-item::before {
+  border-color: var(--color-bg);
+}
+
+.train-timeline-item.current::before {
+  background: var(--color-accent);
+  box-shadow: 0 0 0 4px rgba(231,76,60,0.25);
+  width: 16px;
+  height: 16px;
+  left: calc(-1 * var(--space-4) - 8px);
+}
+
+.train-timeline-item.passed::before {
+  background: var(--color-success);
+  border-color: var(--color-bg);
+}
+
+.train-timeline-item h3 {
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 4px;
+  color: var(--color-text-dark);
+}
+
+.train-timeline-item.passed h3 { color: var(--color-text); }
+
+.train-timeline-item p {
+  font-size: 0.86rem;
+  color: var(--color-text);
+  line-height: 1.5;
+}
+
+/* ── Responsive ─────────────────────────── */
+@media (max-width: 768px) {
+  .train-header {
+    border-radius: 0;
+    padding: var(--space-3) var(--space-2);
+  }
+
+  .train-detail-layout {
+    flex-direction: column;
+  }
+
+  .train-detail-layout .map-container {
+    flex: none;
+    width: 100%;
+  }
+
+  .train-timeline {
+    padding-left: var(--space-3);
+  }
+
+  .train-timeline-item::before {
+    left: calc(-1 * var(--space-3) - 7px);
+  }
+
+  .train-timeline-item.current::before {
+    left: calc(-1 * var(--space-3) - 8px);
+  }
+}
