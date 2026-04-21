@@ -34,11 +34,20 @@ function setupLanguageToggle() {
 function initHamburgerMenu() {
     const hamburger = document.querySelector('.hamburger');
     const mainNav = document.querySelector('.main-nav');
-    if (hamburger && mainNav) {
-        hamburger.addEventListener('click', () => {
-            mainNav.classList.toggle('mobile-open');
-        });
-    }
+    if (!hamburger || !mainNav) return;
+
+    hamburger.addEventListener('click', (e) => {
+        e.stopPropagation();
+        mainNav.classList.toggle('mobile-open');
+    });
+
+    document.addEventListener('click', (e) => {
+        if (mainNav.classList.contains('mobile-open') &&
+            !mainNav.contains(e.target) &&
+            !hamburger.contains(e.target)) {
+            mainNav.classList.remove('mobile-open');
+        }
+    });
 }
 
 function initStationSearch() {

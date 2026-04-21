@@ -178,18 +178,29 @@ body {
 /* ── Hamburger ──────────────────────────── */
 .hamburger {
   display: none;
-  background: none;
-  border: none;
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.22);
   color: var(--color-white);
-  font-size: 1.5rem;
   cursor: pointer;
-  padding: 6px;
+  width: 44px;
+  height: 44px;
+  padding: 0;
   border-radius: var(--radius-md);
   transition: background var(--transition-fast);
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
 }
 
 .hamburger:hover {
-  background: rgba(255,255,255,0.1);
+  background: rgba(255,255,255,0.22);
+}
+
+.hamburger svg {
+  width: 22px;
+  height: 22px;
+  display: block;
+  pointer-events: none;
 }
 
 /* ── Scroll Reveal ──────────────────────── */
@@ -247,6 +258,19 @@ body {
   .main-nav.mobile-open .btn-theme-toggle,
   .main-nav.mobile-open .btn-lang {
     margin: var(--space-1) 0;
+  }
+
+  /* Riga orizzontale per i controlli (tema + lingua) */
+  .main-nav.mobile-open .nav-controls {
+    display: flex;
+    gap: var(--space-1);
+    padding: 8px var(--space-2);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    width: 100%;
+  }
+
+  .main-nav.mobile-open .btn-theme-toggle {
+    margin: 0;
   }
 
   @keyframes slideDown {

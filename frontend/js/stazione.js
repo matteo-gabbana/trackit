@@ -59,9 +59,20 @@ function setupLanguageToggle() {
 function initHamburgerMenu() {
     const hamburger = document.querySelector('.hamburger');
     const mainNav = document.querySelector('.main-nav');
-    if (hamburger && mainNav) {
-        hamburger.addEventListener('click', () => mainNav.classList.toggle('mobile-open'));
-    }
+    if (!hamburger || !mainNav) return;
+
+    hamburger.addEventListener('click', (e) => {
+        e.stopPropagation();
+        mainNav.classList.toggle('mobile-open');
+    });
+
+    document.addEventListener('click', (e) => {
+        if (mainNav.classList.contains('mobile-open') &&
+            !mainNav.contains(e.target) &&
+            !hamburger.contains(e.target)) {
+            mainNav.classList.remove('mobile-open');
+        }
+    });
 }
 
 function setupTabs() {
@@ -186,12 +197,16 @@ function renderCachedRows() {
         // Nascondi le righe oltre le prime ROWS_INITIAL
         if (index >= ROWS_INITIAL) tr.classList.add('row-hidden');
 
+        const labelLocalita = currentTab === 'arrivi'
+            ? I18n.t('general.departure')
+            : I18n.t('station.destination');
+
         tr.innerHTML = `
-            <td>${escapeHtml(String(numero))}</td>
-            <td>${escapeHtml(localita)}</td>
-            <td>${formatTime(orarioTs)}</td>
-            <td class="ritardo-cell ${getDelayClass(ritardo)}">${formatDelay(ritardo)}</td>
-            <td>${escapeHtml(stato)}</td>
+            <td data-label="${I18n.t('station.train')}">${escapeHtml(String(numero))}</td>
+            <td data-label="${labelLocalita}">${escapeHtml(localita)}</td>
+            <td data-label="${I18n.t('station.scheduled_time')}">${formatTime(orarioTs)}</td>
+            <td data-label="${I18n.t('station.delay')}" class="ritardo-cell ${getDelayClass(ritardo)}">${formatDelay(ritardo)}</td>
+            <td data-label="${I18n.t('station.status')}">${escapeHtml(stato)}</td>
         `;
 
         // Click sulla riga -> vai al dettaglio treno

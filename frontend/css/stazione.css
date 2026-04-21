@@ -180,7 +180,35 @@ tr.row-hidden { display: none; }
 @media (max-width: 768px) {
   .station-header {
     border-radius: 0;
-    padding: var(--space-3) var(--space-2);
+    padding: var(--space-2) var(--space-2) var(--space-3);
+  }
+
+  .station-header h1 {
+    font-size: 1.6rem;
+  }
+
+  .tabs {
+    margin-bottom: var(--space-2);
+  }
+
+  .tab-button {
+    padding: 8px var(--space-2);
+    font-size: 0.9rem;
+  }
+
+  .delay-threshold-config {
+    display: flex;
+    width: 100%;
+    margin-bottom: var(--space-1);
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .station-header .btn-secondary {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    margin-top: var(--space-1);
   }
 
   .station-content {
@@ -190,10 +218,19 @@ tr.row-hidden { display: none; }
   .station-content .map-container {
     flex: none;
     width: 100%;
+    order: 2;
+  }
+
+  .station-content .train-list-container {
+    order: 1;
   }
 
   .table-orari thead {
     display: none;
+  }
+
+  .table-orari {
+    margin-top: var(--space-2);
   }
 
   .table-orari tbody tr {
@@ -213,6 +250,7 @@ tr.row-hidden { display: none; }
     padding: 7px 0;
     border-bottom: 1px solid var(--color-border-subtle);
     font-size: 0.92rem;
+    min-height: 36px;
   }
 
   .table-orari td:last-child {
@@ -222,11 +260,13 @@ tr.row-hidden { display: none; }
   .table-orari td::before {
     content: attr(data-label);
     font-weight: 600;
-    font-size: 0.78rem;
+    font-size: 0.75rem;
     text-transform: uppercase;
     letter-spacing: 0.05em;
     color: var(--color-text);
     margin-right: var(--space-2);
     flex-shrink: 0;
+    min-width: 90px;
   }
+
 }
