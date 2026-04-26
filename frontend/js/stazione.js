@@ -6,6 +6,10 @@ import { Notifications } from './notifications.js';
 import { Storage } from './storage.js';
 import { formatTime, formatDelay, getDelayClass } from './utils.js';
 
+//**
+// Gestisce la pagina specifica della stazione
+//  */
+
 const ROWS_INITIAL = 5;
 
 const qs = new URLSearchParams(window.location.search);

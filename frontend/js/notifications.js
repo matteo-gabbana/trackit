@@ -64,19 +64,19 @@ export const Notifications = {
      * Mostra un messaggio toast in sovrimpressione.
      * @param {string} messaggio - Il messaggio da mostrare.
      */
-    showToast(messaggio) {
-        let toastEl = document.querySelector('.toast');
-        if (!toastEl) {
-            toastEl = document.createElement('div');
-            toastEl.classList.add('toast');
-            document.body.appendChild(toastEl);
-        }
+    // showToast(messaggio) {
+    //     let toastEl = document.querySelector('.toast');
+    //     if (!toastEl) {
+    //         toastEl = document.createElement('div');
+    //         toastEl.classList.add('toast');
+    //         document.body.appendChild(toastEl);
+    //     }
 
-        toastEl.textContent = messaggio;
-        toastEl.classList.add('show');
+    //     toastEl.textContent = messaggio;
+    //     toastEl.classList.add('show');
 
-        setTimeout(() => {
-            toastEl.classList.remove('show');
-        }, 4000);
-    }
+    //     setTimeout(() => {
+    //         toastEl.classList.remove('show');
+    //     }, 4000);
+    // }
 };

@@ -1,6 +1,10 @@
 import { API } from './api.js';
 import { I18n } from './i18n.js';
 
+//**
+// Gestisce la pagina delle notizie
+//  */
+
 let currentLang = I18n.getLang();
 
 document.addEventListener('DOMContentLoaded', () => {

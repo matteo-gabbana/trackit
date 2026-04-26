@@ -452,7 +452,6 @@ Gestione delle notifiche di ritardo.
 
 - Legge/scrive la soglia di ritardo su `localStorage` (chiave `trackit_soglia`, default: 5 minuti)
 - `check(treni, containerEl)`: applica la classe CSS `alert-ritardo` alle righe che superano la soglia
-- `showToast(messaggio)`: mostra un toast temporaneo
 
 ---
 

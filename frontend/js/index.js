@@ -5,6 +5,10 @@ import { I18n } from './i18n.js';
 import { showPopup } from './utils.js';
 import { MapManager } from './map.js';
 
+//**
+// Gestisce le funzionalità della landing page
+//  */
+
 document.addEventListener('DOMContentLoaded', () => {
     I18n.init();
     setupLanguageToggle();
@@ -166,7 +170,7 @@ function navigateToStation(id, nome) {
     window.location.href = `stazione.html?id=${id}&nome=${encodeURIComponent(nome)}`;
 }
 
-// ── Mappa stazioni recenti ────────────────
+// Mappa stazioni recenti
 // Cache coordinate per evitare chiamate API ripetute
 const stationCoordsCache = new Map();
 let recentMapInitialized = false;
@@ -208,7 +212,7 @@ async function loadRecentStationsMap() {
         // Adatta la vista per mostrare tutti i marker
         MapManager.fitMarkers(40);
     } else {
-        // Nessuna stazione: vista default sull'Italia
+        // Nessuna stazione: vista default sull'Italia e su Roma
         MapManager.map.setView([42.5, 12.5], 6);
     }
 }
@@ -272,7 +276,7 @@ const scrollRevealObserver = new IntersectionObserver((entries, observer) => {
         }
     });
 }, {
-    threshold: 0.1 // Trigger when 10% of the item is visible
+    threshold: 0.1
 });
 
 document.querySelectorAll('[data-reveal]').forEach(el => {

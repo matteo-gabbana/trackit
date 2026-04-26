@@ -108,8 +108,6 @@ export const I18n = {
         // Carica stringhe da Trenitalia come fallback/integrazione
         try {
             const apiTranslations = await API.lingua(lang);
-            // Potresti voler unire queste traduzioni con quelle locali, gestendo i conflitti
-            // Per semplicità, qui le usiamo solo come riferimento o per log
             console.log('Traduzioni API Trenitalia:', apiTranslations);
         } catch (error) {
             console.error('Errore nel caricamento delle traduzioni API:', error);

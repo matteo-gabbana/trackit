@@ -1,6 +1,10 @@
 import { API } from './api.js';
 import { I18n } from './i18n.js';
 
+//**
+// Gestisce il meteo
+//  */
+
 const TEMPO_LABELS = {
     1: 'Sereno',
     2: 'Poco nuvoloso',

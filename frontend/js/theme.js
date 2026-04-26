@@ -1,9 +1,6 @@
-/**
- * TrackIT — Theme Toggle (dark / light mode)
- * Nessuna interazione con backend o logica applicativa.
- * Caricato nell'<head> come script sincrono per evitare
- * il flash of unstyled content (FOUC).
- */
+//**
+// Gestisce il tema chiaro/scuro
+//  */
 (function () {
   var STORAGE_KEY = 'trackit_theme';
 

@@ -74,18 +74,18 @@ export const MapManager = {
      * Disegna una polyline tra le coordinate delle fermate.
      * @param {Array<{lat: number, lng: number}>} fermate
      */
-    addPercorso(fermate) {
-        if (!this.map) return;
-        if (this.polyline) {
-            this.map.removeLayer(this.polyline);
-            this.polyline = null;
-        }
-        if (fermate && fermate.length > 1) {
-            const latlngs = fermate.map(f => [f.lat, f.lng]);
-            this.polyline = L.polyline(latlngs, {
-                color: '#2C3E50', weight: 4, opacity: 0.7,
-            }).addTo(this.map);
-            this.map.fitBounds(this.polyline.getBounds(), { padding: [40, 40] });
-        }
-    },
+    // addPercorso(fermate) {
+    //     if (!this.map) return;
+    //     if (this.polyline) {
+    //         this.map.removeLayer(this.polyline);
+    //         this.polyline = null;
+    //     }
+    //     if (fermate && fermate.length > 1) {
+    //         const latlngs = fermate.map(f => [f.lat, f.lng]);
+    //         this.polyline = L.polyline(latlngs, {
+    //             color: '#2C3E50', weight: 4, opacity: 0.7,
+    //         }).addTo(this.map);
+    //         this.map.fitBounds(this.polyline.getBounds(), { padding: [40, 40] });
+    //     }
+    // },
 };

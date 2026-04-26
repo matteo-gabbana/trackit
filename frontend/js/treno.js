@@ -3,6 +3,10 @@ import { I18n } from './i18n.js';
 import { MapManager } from './map.js';
 import { formatTime, formatDelay, getDelayClass } from './utils.js';
 
+//**
+// Gestisce la pagina specifica del treno
+//  */
+
 const qs = new URLSearchParams(window.location.search);
 const codTreno = qs.get('codTreno');
 const codPartenza = qs.get('codPartenza');
